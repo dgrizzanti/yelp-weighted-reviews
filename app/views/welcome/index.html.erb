@@ -1,4 +1,18 @@
-<h2>Hello World</h2>
+<h2>Hello</h2>
 <p>
-  The time is now: <%= Time.now %>
+  <% if @restaurants.length > 1 %>
+  <b>Resturants found:</b><br/>
+  <% end %>
+  <% @restaurants.each do |r| %>
+    <%= "#{r['name']} : #{r['rating']}" %><br/>
+  <% end %>
+  <%= form_tag("/", method: "get") do %>
+    <%= label_tag(:city, "*City:") %>
+    <%= text_field_tag 'city', nil, placeholder: 'Philadelphia' %><br/>
+    <%= label_tag(:category, "*Category Filter:") %>
+    <%= text_field_tag 'category', nil,  placeholder: 'thai' %><br/>
+    <%= label_tag(:term, "Search Term:") %>
+    <%= text_field_tag 'term', nil, placeholder: 'All' %><br/>
+    <%= submit_tag("Search") %>
+  <% end %>
 </p>
