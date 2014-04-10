@@ -5,7 +5,6 @@
   <% if @restaurants.length > 1 %>
   <br/>
   <b>Resturants found:</b><br/>
-  <% end %>
   <table border=1>
     <th>Business</th>
     <th>Review Count</th>
@@ -20,6 +19,7 @@
     </tr>
     <% end %>
   </table>
+  <% end %>
   <br/>
   <%= form_tag("/", method: "get") do %>
     <%= label_tag(:city, "*City:") %>
